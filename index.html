@@ -292,19 +292,31 @@ nav {
   align-items: center;
   gap: var(--space-2);
   font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border-subtle);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #FFFFFF;
+  padding: 0.6rem 1.25rem;
+  background: var(--gradient-teal);
+  border: 1px solid rgba(13, 148, 136, 0.4);
   border-radius: 100px;
-  transition: color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out);
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              filter var(--duration-fast) var(--ease-out);
+  animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
 .hero-community a:hover {
-  color: var(--accent-teal);
-  border-color: var(--accent-teal-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  filter: brightness(1.08);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(13, 148, 136, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+  50% { box-shadow: 0 6px 28px rgba(13, 148, 136, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
 }
 
 .hero-community svg {
@@ -973,6 +985,29 @@ nav {
   letter-spacing: 0.05em;
 }
 
+.recruit-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.recruit-qr img {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  padding: var(--space-2);
+  border: 1px solid var(--border-subtle);
+}
+
+.recruit-qr figcaption {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
@@ -1177,13 +1212,14 @@ footer .footer-community a {
     <span>科学智能体</span>
   </div>
   <div class="hero-community">
-    <a href="https://gitcode.com/AI4Science" target="_blank" rel="noopener">
+    <a href="#recruitment">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
       </svg>
-      数据来源 · 昇腾 AI4S 社区 · GitCode
+      团队招募中 · 寻找 AI4S 同路人 · 共探科学智能未来
     </a>
   </div>
   <div class="scroll-indicator" aria-hidden="true">
@@ -1558,6 +1594,10 @@ footer .footer-community a {
         <p class="recruit-cta-hint">
           添加 <strong>g1340346106</strong> 备注「AI4S」
         </p>
+        <figure class="recruit-qr">
+          <img src="./weixin.png" alt="微信二维码" width="140" height="140" loading="lazy" onerror="window.imgError(this)"/>
+          <figcaption>扫码添加微信 · 备注「AI4S」</figcaption>
+        </figure>
       </div>
     </div>
 
